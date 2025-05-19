@@ -55,3 +55,14 @@ app.post('/add-user', async (req, res) => {
         res.status(500).send('Fehler beim Einfügen des Benutzers');
     }
 });
+
+app.post('/delete-user/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        await db.query('DELETE FROM users WHERE id = ?', [id]);
+        res.redirect('/users');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Fehler beim Löschen des Benutzers');
+    }
+});

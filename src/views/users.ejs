@@ -13,7 +13,7 @@
 <h1 style="text-align:center">Benutzerliste</h1>
 <table>
     <thead>
-    <tr><th>ID</th><th>Name</th><th>Email</th></tr>
+    <tr><th>ID</th><th>Name</th><th>Email</th><th>Aktion</th></tr>
     </thead>
     <tbody>
     <% users.forEach(user => { %>
@@ -21,10 +21,16 @@
             <td><%= user.id %></td>
             <td><%= user.name %></td>
             <td><%= user.email %></td>
+            <td>
+                <form action="/delete-user/<%= user.id %>" method="POST" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Wirklich löschen?');">🗑️ Löschen</button>
+                </form>
+            </td>
         </tr>
     <% }); %>
     </tbody>
 </table>
+
 <p style="text-align:center;">
     <a href="/add-user">Neuen Benutzer hinzufügen</a>
 </p>

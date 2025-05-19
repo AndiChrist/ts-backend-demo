@@ -36,3 +36,22 @@ app.get('/users', async (req, res) => {
         res.status(500).send('Fehler beim Laden der Benutzer');
     }
 });
+
+app.use(express.urlencoded({ extended: true }));
+
+// Formular anzeigen
+app.get('/add-user', (req, res) => {
+    res.render('form');
+});
+
+// Formular verarbeiten (POST)
+app.post('/add-user', async (req, res) => {
+    const { name, email } = req.body;
+    try {
+        await db.query('INSERT INTO users (name, email) VALUES (?, ?)', [name, email]);
+        res.redirect('/users');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Fehler beim Einfügen des Benutzers');
+    }
+});

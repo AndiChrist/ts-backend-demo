@@ -35,3 +35,28 @@ INSERT INTO users (name, email) VALUES
 
 # open in browser
 http://localhost:3000/users
+
+# Playwright tests
+## installation
+```zsh
+npm install -D @playwright/test
+npx playwright install
+```
+## initialize Playwright
+```zsh
+npx playwright init
+```
+OR:
+``ts
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+testDir: './tests',
+use: {
+baseURL: 'http://localhost:3000',
+browserName: 'chromium',
+headless: true,
+},
+});
+
+``

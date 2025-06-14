@@ -6,4 +6,4 @@ build/
 *.tsbuildinfo
 .idea/
 test-results/
-
+playwright-report/

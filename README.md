@@ -46,8 +46,8 @@ npx playwright install
 ```zsh
 npx playwright init
 ```
-OR:
-``ts
+or:
+```typescript
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
@@ -58,5 +58,17 @@ browserName: 'chromium',
 headless: true,
 },
 });
+```
+## start tests
+```zsh
+npx playwright test
+```
+or:
+```zsh
+npx playwright test --ui
+```
 
-``
+## reporting
+```zsh
+npx playwright show-report
+```

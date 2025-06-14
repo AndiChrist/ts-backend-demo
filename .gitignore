@@ -5,4 +5,5 @@ build/
 *.log
 *.tsbuildinfo
 .idea/
+test-results/
 

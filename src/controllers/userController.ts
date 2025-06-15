@@ -1,6 +1,6 @@
 // src/controllers/userController.ts
 import { Request, Response } from 'express';
-import db from '../db';
+import db from '../db/connection';
 import { User } from '../models/User';
 
 export async function list(req: Request, res: Response) {

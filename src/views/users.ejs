@@ -22,8 +22,8 @@
             <td><%= user.name %></td>
             <td><%= user.email %></td>
             <td>
-                <a href="/edit-user/<%= user.id %>">✏️ Bearbeiten</a>
-                <form action="/delete-user/<%= user.id %>" method="POST" style="display:inline;">
+                <a href="/users/edit-user/<%= user.id %>">✏️ Bearbeiten</a>
+                <form action="/users/delete-user/<%= user.id %>" method="POST" style="display:inline;">
                     <button type="submit" onclick="return confirm('Wirklich löschen?');">🗑️ Löschen</button>
                 </form>
             </td>
@@ -33,7 +33,7 @@
 </table>
 
 <p style="text-align:center;">
-    <a href="/add-user">Neuen Benutzer hinzufügen</a>
+    <a href="/users/add-user">Neuen Benutzer hinzufügen</a>
 </p>
 </body>
 </html>

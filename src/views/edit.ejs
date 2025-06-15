@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Benutzer bearbeiten</h1>
-<form action="/update-user/<%= user.id %>" method="POST">
+<form action="/users/update-user/<%= user.id %>" method="POST">
     <label for="name">Name:</label><br />
     <input type="text" name="name" id="name" value="<%= user.name %>" required /><br /><br />
     <label for="email">Email:</label><br />

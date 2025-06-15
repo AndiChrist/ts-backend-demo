@@ -1,18 +1,16 @@
-// src/index.ts
+// src/app.ts
 import express from 'express';
-import path from 'path';
 import userRoutes from './routes/userRoutes';
+import path from 'path';
 
 const app = express();
-const PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Routing
-app.use(userRoutes);
+app.use('/users', userRoutes);
+app.get('/', (req, res) => res.redirect('/users'));
 
-app.listen(PORT, () => {
-    console.log(`Server läuft auf http://localhost:${PORT}`);
-});
+export default app;

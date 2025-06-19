@@ -1,5 +1,15 @@
 import { Page } from '@playwright/test';
 
+import knex from 'knex';
+import knexConfig from '../knexfile';
+
+export const db = knex(knexConfig.development);
+
+export async function resetTestDatabase() {
+  await db.migrate.latest();
+  await db.seed.run();
+}
+
 export async function createTestUser(page: Page, name = 'Testuser', email = 'test@example.com') {
   await page.goto('/users');
   await page.click('text=Neuen Benutzer hinzufügen');

@@ -72,3 +72,37 @@ npx playwright test --ui
 ```zsh
 npx playwright show-report
 ```
+
+# Knex
+## install
+```zsh
+npm install knex mysql2
+npm install -D ts-node typescript @types/node
+```
+
+## create configuration
+```zsh
+npx knex init
+```
+(and rename to *.ts)
+
+## create table file
+```zsh
+npx knex --knexfile knexfile.ts migrate:make create_users_table
+```
+(example: see db/migrations/20250617175154_create_users_table.ts)
+
+## create seed file
+```zsh
+npx knex --knexfile knexfile.ts seed:make demo_users
+```
+
+## execute migrate && seed
+create table:
+```zsh
+npx knex --knexfile knexfile.ts migrate:latest
+```
+create data:
+```zsh
+npx knex --knexfile knexfile.ts seed:run
+```
